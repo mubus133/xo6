@@ -500,7 +500,7 @@
                     day: 'numeric' 
                 });
 
-                return `
+                               return `
                     <div class="review-card">
                         <div class="review-header">
                             <div class="review-avatar">${initial}</div>
@@ -513,7 +513,22 @@
                         <div class="review-date">${formattedDate}</div>
                         ${review.verified ? '<span class="verified-badge">✓ Verified Purchase</span>' : ''}
                     </div>
-                `
+                `;
+            }).join('');
+        }
+
+        // Initialize
+        renderReviews();
+
+        // Filter button click
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                renderReviews(currentFilter);
+            });
+        });
     </script>
 </body>
 </html>

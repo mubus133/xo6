@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Sx06 Luxe - we're here to assist with inquiries, orders, and custom requests.">
+    <title>Contact — Sx06 Luxe</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-gold: #D4AF37;
+            --color-gold-light: #E5C158;
+            --color-gray-dark: #1a1a1a;
+            --color-gray-medium: #666666;
+            --color-gray-light: #f5f5f5;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --font-display: 'Montserrat Alternates', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-black);
+            background: var(--color-white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        
+        .navbar {
+            background: var(--color-white);
+            padding: var(--space-sm) 0;
+            transition: all var(--transition-base);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .navbar.scrolled {
+            padding: var(--space-xs) 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: height var(--transition-base);
+        }
+        
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-black) !important;
+            padding: var(--space-xs) var(--space-sm) !important;
+            transition: color var(--transition-fast);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: var(--color-gold) !important;
+        }
+        
+        .page-header {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: calc(80px + var(--space-xl)) 0 var(--space-xl);
+            text-align: center;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--color-gold);
+            letter-spacing: 0.1em;
+        }
+        
+        .contact-section {
+            padding: var(--space-xl) 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+        
+        .contact-info {
+            padding: var(--space-lg);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .info-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-black);
+        }
+        
+        .info-content p {
+            color: var(--color-gray-medium);
+            margin: 0;
+        }
+        
+        .info-content a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .info-content a:hover {
+            color: var(--color-gold-light);
+        }
+        
+        .contact-form {
+            background: var(--color-gray-light);
+            padding: var(--space-lg);
+            border-radius: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-black);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid var(--color-gray-medium);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-error {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: var(--space-xs);
+            display: none;
+        }
+        
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #dc3545;
+        }
+        
+        .form-group.error .form-error {
+            display: block;
+        }
+        
+        .btn-submit {
+            background: var(--color-gold);
+            color: var(--color-black);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .btn-submit:hover:not(:disabled) {
+            background: var(--color-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .info-section {
+            background: var(--color-gray-light);
+            padding: var(--space-xl) 0;
+            margin-top: var(--space-xl);
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .info-card {
+            background: var(--color-white);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-gold);
+        }
+        
+        .info-card p {
+            color: var(--color-gray-medium);
+            line-height: 1.7;
+        }
+        
+        /* Success Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .modal-content h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .modal-content p {
+            color: var(--color-gray-medium);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .btn-close-modal {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .btn-close-modal:hover {
+            background: var(--color-gray-dark);
+        }
+        
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-lg) 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        footer a:hover {
+            color: var(--color-gold-light);
+        }
+        
+        *:focus-visible {
+            outline: 3px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="Sx06 Luxe Home">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='60' font-family='Montserrat Alternates, sans-serif' font-weight='800' font-size='48' fill='%23000' letter-spacing='2'%3ESx06%3C/text%3E%3C/svg%3E" alt="Sx06 Luxe Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="linktree.html">Links</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're Here to Assist You</p>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="mb-5">Get in Touch</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:hello@sx06luxe.com">hello@sx06luxe.com</a></p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">We respond within 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div class="info-content">
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/1234567890">+1 (234) 567-890</a></p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Available Mon-Sat, 9AM-6PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Visit Our Showroom</h3>
+                            <p>By appointment only</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Contact us to schedule a private viewing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2 class="mb-4">Send a Message</h2>
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="form-error">Please enter your name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="form-error">Please enter a valid email</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="order">Order Status</option>
+                                <option value="custom">Custom Request</option>
+                                <option value="sizing">Sizing Assistance</option>
+                                <option value="shipping">Shipping & Returns</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="form-error">Please select a subject</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                            <div class="form-error">Please enter your message</div>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Important Information</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Shipping</h3>
+                    <p>Worldwide express shipping available. Orders processed within 2-3 business days. Complimentary shipping on orders over $500.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Returns</h3>
+                    <p>30-day return policy on unworn items with original tags. Custom orders are final sale. Contact us for return authorization.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Custom Orders</h3>
+                    <p>Bespoke tailoring available. Schedule a consultation to discuss your vision. Lead time: 4-6 weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3 id="modalTitle">Message Sent!</h3>
+            <p>Thank you for contacting Sx06 Luxe. We'll respond to your inquiry within 24 hours.</p>
+            <button class="btn-close-modal" id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sx06 Luxe — SUSTAINX06 LUXURY. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="about.html">About</a> · 
+                <a href="contact.html">Contact</a> · 
+                <a href="linktree.html">Follow Us</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbar = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Form validation and submission
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+
+            // Validate form
+            let isValid = true;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Name validation
+            if (!data.name || data.name.trim().length < 2) {
+                document.getElementById('name').closest('.form-group').classList.add('error');
+                isValid = false;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!data.email || !emailRegex.test(data.email)) {
+                document.getElementById('email').closest('.form-group').classList.add('error');
+                isValid = false;
+            }
+
+            // Subject validation
+            if (!data.subject) {
+                document.getElementById('subject').closest('.form-group').classList.add('error');
+                isValid = false;
+            }
+
+            // Message validation
+            if (!data.message || data.message.trim().length < 10) {
+                document.getElementById('message').closest('.form-group').classList.add('error');
+                document.querySelector('#message + .form-error').textContent = 'Message must be at least 10 characters';
+                isValid = false;
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // Disable submit button
+            const submitBtn = form.querySelector('.btn-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Simulate API call (replace with actual endpoint in production)
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            /*
+             * PRODUCTION NOTE - API Integration:
+             * 
+             * Replace the above with actual API call:
+             * 
+             * try {
+             *     const response = await fetch('YOUR_API_ENDPOINT', {
+             *         method: 'POST',
+             *         headers: {
+             *             'Content-Type': 'application/json',
+             *         },
+             *         body: JSON.stringify(data)
+             *     });
+             *     
+             *     if (!response.ok) throw new Error('Submission failed');
+             *     
+             *     // Show success modal
+             *     modal.classList.add('active');
+             *     form.reset();
+             * } catch (error) {
+             *     alert('Failed to send message. Please try again or email us directly.');
+             * } finally {
+             *     submitBtn.disabled = false;
+             *     submitBtn.textContent = 'Send Message';
+             * }
+             */
+
+            // Show success modal
+            modal.classList.add('active');
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+
+        // Close modal
+        document.getElementById('closeModal').addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Trap focus in modal
+        modal.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

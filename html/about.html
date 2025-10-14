@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the story behind Sx06 Luxe - a luxury fashion brand redefining sophistication through sustainability and innovative design.">
+    <title>About — Sx06 Luxe</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-gold: #D4AF37;
+            --color-gold-light: #E5C158;
+            --color-gray-dark: #1a1a1a;
+            --color-gray-medium: #666666;
+            --color-gray-light: #f5f5f5;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-xxl: 8rem;
+            --font-display: 'Montserrat Alternates', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-black);
+            background: var(--color-white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        /* Navbar - Same as index */
+        .navbar {
+            background: var(--color-white);
+            padding: var(--space-sm) 0;
+            transition: all var(--transition-base);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .navbar.scrolled {
+            padding: var(--space-xs) 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: height var(--transition-base);
+        }
+        
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-black) !important;
+            padding: var(--space-xs) var(--space-sm) !important;
+            transition: color var(--transition-fast);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: var(--color-gold) !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: calc(80px + var(--space-xl)) 0 var(--space-xl);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--color-gold);
+            letter-spacing: 0.1em;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: var(--space-xxl) 0;
+        }
+        
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .story-content p {
+            margin-bottom: var(--space-md);
+        }
+        
+        .highlight-box {
+            background: var(--color-gray-light);
+            padding: var(--space-lg);
+            border-left: 4px solid var(--color-gold);
+            margin: var(--space-lg) 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box h3 {
+            color: var(--color-black);
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* Name Meaning Section */
+        .name-meaning {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-xxl) 0;
+        }
+        
+        .meaning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .meaning-card {
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all var(--transition-base);
+        }
+        
+        .meaning-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-gold);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .meaning-symbol {
+            font-size: 3rem;
+            font-family: var(--font-display);
+            font-weight: 800;
+            color: var(--color-gold);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .meaning-card h3 {
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+            font-size: 1.3rem;
+        }
+        
+        .meaning-card p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: var(--space-xxl) 0;
+            background: var(--color-gray-light);
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md);
+            background: var(--color-white);
+            border-radius: 12px;
+            transition: all var(--transition-base);
+        }
+        
+        .value-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+        }
+        
+        .value-content h3 {
+            margin-bottom: var(--space-xs);
+            color: var(--color-gold);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--color-gold);
+            color: var(--color-black);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        .btn-black {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all var(--transition-base);
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-black:hover {
+            background: var(--color-gray-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            color: var(--color-white);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-lg) 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        footer a:hover {
+            color: var(--color-gold-light);
+        }
+        
+        *:focus-visible {
+            outline: 3px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .story-content {
+                font-size: 1rem;
+            }
+            
+            .value-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="Sx06 Luxe Home">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='60' font-family='Montserrat Alternates, sans-serif' font-weight='800' font-size='48' fill='%23000' letter-spacing='2'%3ESx06%3C/text%3E%3C/svg%3E" alt="Sx06 Luxe Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="linktree.html">Links</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Where Legacy Meets Innovation</p>
+        </div>
+    </header>
+
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <p>Sx06 Luxe is a luxury fashion brand that embodies sophistication and refined excellence. Born from a vision to redefine contemporary luxury, we stand at the intersection of timeless elegance and forward-thinking design.</p>
+                
+                <p>Each piece we create tells a story. A narrative of craftsmanship passed through generations, combined with innovative techniques that push the boundaries of what luxury can be.</p>
+                
+                <div class="highlight-box">
+                    <h3>Our Mission</h3>
+                    <p>To redefine luxury through timeless sophistication, sustainability, and innovative design. We believe true luxury lies not in excess, but in excellence—in every stitch, every fabric choice, every carefully considered detail.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Our Vision</h3>
+                    <p>To become a global symbol of refined luxury that merges legacy with sustainability. We envision a world where exceptional quality and environmental responsibility exist in perfect harmony.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="name-meaning">
+        <div class="container">
+            <h2 class="text-center mb-4">The Meaning Behind the Name</h2>
+            <p class="text-center mb-5" style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Sx06 Luxe is more than a name—it's a legacy encoded</p>
+            
+            <div class="meaning-grid">
+                <div class="meaning-card">
+                    <div class="meaning-symbol">S</div>
+                    <h3>Sustain</h3>
+                    <p>"The Sustainer" — our founder's name and the foundation of our brand's commitment to enduring quality and sustainability.</p>
+                </div>
+                
+                <div class="meaning-card">
+                    <div class="meaning-symbol">X</div>
+                    <h3>October</h3>
+                    <p>The Roman numeral for 10, marking our launch month and symbolizing creativity, transformation, and new beginnings.</p>
+                </div>
+                
+                <div class="meaning-card">
+                    <div class="meaning-symbol">06</div>
+                    <h3>Sixth Day</h3>
+                    <p>Our founder's birthday and the day we launched our first collection—a date forever etched in our brand's DNA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Values</h2>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="value-item">
+                        <div class="value-icon">♻️</div>
+                        <div class="value-content">
+                            <h3>Sustainability</h3>
+                            <p>We source responsibly, produce consciously, and design for longevity. Every garment is crafted to last generations, not seasons. Our commitment extends beyond fashion—it's a promise to the planet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">✂️</div>
+                        <div class="value-content">
+                            <h3>Craftsmanship</h3>
+                            <p>Master artisans. Time-honored techniques. Modern precision. Each piece undergoes meticulous attention from sketch to stitch, ensuring perfection in every detail.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">🏛️</div>
+                        <div class="value-content">
+                            <h3>Legacy</h3>
+                            <p>We create heirlooms, not trends. Our designs transcend time, carrying forward the stories of those who wear them. This is fashion meant to be passed down.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="mb-4">Experience Sx06 Luxe</h2>
+            <p class="mb-4" style="font-size: 1.1rem;">Discover pieces that define your legacy</p>
+            <a href="gallery.html" class="btn-black">View Collection</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sx06 Luxe — SUSTAINX06 LUXURY. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="about.html">About</a> · 
+                <a href="contact.html">Contact</a> · 
+                <a href="linktree.html">Follow Us</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbar = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

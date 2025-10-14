@@ -1,0 +1,277 @@
+{
+  "intents": {
+    "greeting": {
+      "patterns": [
+        "hi", "hello", "hey", "good morning", "good afternoon", 
+        "good evening", "greetings", "what's up", "howdy", "yo"
+      ],
+      "responses": [
+        "Hello! Welcome to Sx06 Luxe 👋 How can I assist you today?",
+        "Hi there! Thanks for visiting Sx06 Luxe. What can I help you with?",
+        "Welcome to Sx06 Luxe! I'm here to help you explore our luxury collection and answer any questions.",
+        "Greetings! How may I assist you in your Sx06 Luxe experience today?"
+      ],
+      "quickReplies": ["Shop Collection", "Brand Story", "Shipping Info", "Contact Us"]
+    },
+    "shop": {
+      "patterns": [
+        "shop", "buy", "purchase", "collection", "products", "catalog",
+        "browse", "items", "what do you sell", "show me", "available"
+      ],
+      "responses": [
+        "Explore our exclusive collection! Visit our <a href='gallery.html'>Gallery</a> to see customer looks and our latest luxury pieces.",
+        "Check out our <a href='gallery.html'>Gallery</a> for stunning customer photos and videos showcasing our collection!",
+        "Browse our premium collection at <a href='gallery.html'>Gallery</a> - featuring sustainable luxury fashion curated for the modern connoisseur."
+      ],
+      "quickReplies": ["Shipping Info", "Sizing Guide", "Pricing", "Contact Us"]
+    },
+    "story": {
+      "patterns": [
+        "story", "about", "founded", "founder", "who", "history", 
+        "brand", "abdulmuqeet", "06", "meaning", "origin"
+      ],
+      "responses": [
+        "Sx06 Luxe was founded by Abdulmuqeet in October 2025. The '06' represents the founder's day - a symbol of legacy and personal significance. We combine timeless sophistication with sustainable craft. Learn more on our <a href='about.html'>About page</a>.",
+        "Our brand represents the intersection of luxury, sustainability, and innovation. Founded by Abdulmuqeet, the '06' honors a special day that represents legacy and vision. Discover our full story <a href='about.html'>here</a>.",
+        "Sx06 Luxe = S (Sustain) X (times) 06 (founder's day). We're redefining luxury through sustainability, sophistication, and innovative design. <a href='about.html'>Read our full story</a>."
+      ],
+      "quickReplies": ["Shop Collection", "Sustainability", "Contact Us", "Gallery"]
+    },
+    "shipping": {
+      "patterns": [
+        "ship", "shipping", "deliver", "delivery", "send", "international",
+        "how long", "tracking", "countries", "regions", "worldwide"
+      ],
+      "responses": [
+        "We ship worldwide! 🌍<br>• Standard: 5-7 business days<br>• Express: 2-3 business days<br>• Free shipping on orders over $200<br>• Full tracking provided",
+        "Shipping to your location:<br>✈️ Standard (5-7 days) - from $15<br>⚡ Express (2-3 days) - from $30<br>🎁 Free shipping on orders $200+<br>Track your order anytime!",
+        "Yes, we ship globally! Nigeria customers enjoy priority processing. Standard delivery takes 5-7 days, Express 2-3 days. Free shipping on orders above $200."
+      ],
+      "quickReplies": ["Returns Policy", "Shop Collection", "Track Order", "Contact Us"]
+    },
+    "contact": {
+      "patterns": [
+        "contact", "email", "phone", "reach", "talk", "support", 
+        "help", "customer service", "get in touch"
+      ],
+      "responses": [
+        "We'd love to hear from you! 💌<br>📧 Email: hello@sx06luxe.com<br>💬 WhatsApp: +234 801 234 5678<br>🕒 Response time: Within 24 hours<br>Or visit our <a href='contact.html'>Contact page</a>",
+        "Get in touch with us:<br>📧 hello@sx06luxe.com<br>📱 WhatsApp Business: +234 801 234 5678<br>📍 Visit our <a href='contact.html'>Contact page</a><br>We typically respond within 24 hours!",
+        "Reach our team:<br>• Email: hello@sx06luxe.com<br>• WhatsApp: +234 801 234 5678<br>• <a href='contact.html'>Contact Form</a><br>Average response time: 24 hours"
+      ],
+      "quickReplies": ["Shop Collection", "Shipping Info", "Returns", "Gallery"]
+    },
+    "sizing": {
+      "patterns": [
+        "size", "sizing", "fit", "measurements", "dimensions",
+        "what size", "how to measure", "size chart", "fit guide"
+      ],
+      "responses": [
+        "We offer sizes XS-XXL with detailed measurements on each product page.<br><br>📏 Need help finding your size?<br>• Check our size guide<br>• Email us measurements: hello@sx06luxe.com<br>• Free size consultations available!",
+        "Our size range: XS, S, M, L, XL, XXL<br><br>Each product page includes:<br>✓ Detailed measurements<br>✓ Fit guide<br>✓ Model measurements<br><br>Not sure? Contact us for personalized fitting advice!",
+        "Size guide available on all product pages. We offer XS-XXL. For personalized fitting advice, contact us at hello@sx06luxe.com or WhatsApp +234 801 234 5678."
+      ],
+      "quickReplies": ["Shop Collection", "Contact Us", "Returns Policy", "Shipping"]
+    },
+    "returns": {
+      "patterns": [
+        "return", "refund", "exchange", "policy", "unhappy",
+        "not satisfied", "change", "swap", "money back"
+      ],
+      "responses": [
+        "Our hassle-free returns policy:<br>✓ 30-day return window<br>✓ Free return shipping<br>✓ Full refund or exchange<br>✓ Items must be unworn with tags<br><br><a href='contact.html'>Contact us</a> to initiate a return.",
+        "Returns made easy:<br>• 30 days from delivery<br>• Free return shipping worldwide<br>• Full refund or exchange<br>• Items must be in original condition<br><br>Start your return: hello@sx06luxe.com",
+        "30-day return policy on all unworn items with tags. Free returns worldwide. Full refund or exchange available. <a href='contact.html'>Contact us</a> to begin."
+      ],
+      "quickReplies": ["Shop Collection", "Contact Us", "Shipping Info", "Sizing"]
+    },
+    "sustainability": {
+      "patterns": [
+        "sustainable", "sustainability", "eco", "environment", "ethical",
+        "green", "materials", "carbon", "impact", "planet"
+      ],
+      "responses": [
+        "Sustainability is core to Sx06 Luxe:<br>🌿 100% sustainable materials<br>♻️ Ethical manufacturing<br>📦 Eco-friendly packaging<br>🌍 Carbon-neutral shipping<br><br>Learn more on our <a href='about.html'>About page</a>.",
+        "We're committed to luxury without compromise:<br>✓ Sustainable materials only<br>✓ Ethical labor practices<br>✓ Minimal waste production<br>✓ Carbon-neutral operations<br><br>It's luxury you can feel good about. 🌿",
+        "100% sustainable luxury:<br>• Organic & recycled materials<br>• Fair trade practices<br>• Carbon-neutral shipping<br>• Recyclable packaging<br><br>Fashion that respects people & planet."
+      ],
+      "quickReplies": ["Brand Story", "Shop Collection", "Materials Info", "Certifications"]
+    },
+    "price": {
+      "patterns": [
+        "price", "cost", "expensive", "cheap", "affordable", "how much",
+        "pricing", "payment", "pay", "budget"
+      ],
+      "responses": [
+        "Our pieces range from $150-$800, reflecting:<br>✓ Premium sustainable materials<br>✓ Ethical craftsmanship<br>✓ Timeless design<br>✓ Fair wages<br><br>Each item is an investment in lasting luxury. View pricing in our <a href='gallery.html'>Gallery</a>.",
+        "Price range: $150-$800 per piece<br><br>Why this value?<br>• Sustainable materials<br>• Ethical production<br>• Exceptional quality<br>• Timeless design<br><br>We believe in transparent pricing that reflects true value.",
+        "Our collection: $150-$800. Premium sustainable materials, ethical craftsmanship, and timeless design. View specific pricing in our <a href='gallery.html'>Gallery</a>."
+      ],
+      "quickReplies": ["Shop Collection", "Payment Options", "Sustainability", "Contact Us"]
+    },
+    "payment": {
+      "patterns": [
+        "payment", "pay", "checkout", "credit card", "paypal", "installment",
+        "methods", "options", "apple pay", "google pay"
+      ],
+      "responses": [
+        "We accept:<br>💳 Visa, Mastercard, Amex<br>📱 PayPal, Apple Pay, Google Pay<br>📊 Installment plans (Shop Pay)<br>💰 4 interest-free payments available<br><br>Secure checkout guaranteed.",
+        "Payment options:<br>✓ All major credit cards<br>✓ PayPal<br>✓ Apple Pay / Google Pay<br>✓ Buy Now, Pay Later (Shop Pay)<br><br>Split into 4 interest-free payments!",
+        "Flexible payment: Credit cards, PayPal, Apple Pay, Google Pay accepted. Plus Shop Pay installments - 4 interest-free payments. Secure & encrypted checkout."
+      ],
+      "quickReplies": ["Shop Collection", "Security Info", "Contact Us", "Shipping"]
+    },
+    "gallery": {
+      "patterns": [
+        "gallery", "photos", "pictures", "images", "customers", "reviews",
+        "looks", "styling", "wear", "show me"
+      ],
+      "responses": [
+        "Check out our <a href='gallery.html'>Customer Gallery</a>! 📸<br><br>See real customers wearing Sx06 Luxe:<br>• Customer photos<br>• Video testimonials<br>• Styling inspiration<br><br>You can submit your own photos too!",
+        "Our <a href='gallery.html'>Gallery</a> showcases authentic customer moments. Real people, real luxury, real style. Browse photos and videos, then add your own!",
+        "Explore our <a href='gallery.html'>Customer Gallery</a> for styling inspiration from our community. Photos, videos, and reviews from verified customers worldwide."
+      ],
+      "quickReplies": ["View Gallery", "Submit Photo", "Shop Collection", "Reviews"]
+    },
+    "reviews": {
+      "patterns": [
+        "review", "reviews", "testimonial", "feedback", "rating",
+        "customer opinion", "what do people say", "quality"
+      ],
+      "responses": [
+        "Our customers love us! ⭐⭐⭐⭐⭐<br><br>• 4.9/5 average rating<br>• 100% recommendation rate<br>• 12+ verified reviews<br><br>Read authentic reviews on our <a href='reviews.html'>Reviews page</a>.",
+        "See what our customers say:<br>✓ 4.9/5 stars<br>✓ 100% would recommend<br>✓ Real verified purchases<br><br>Check out <a href='reviews.html'>Reviews</a> for detailed feedback!",
+        "Customer reviews: 4.9/5 stars from verified buyers. Read real experiences on our <a href='reviews.html'>Reviews page</a>. Join our satisfied community!"
+      ],
+      "quickReplies": ["View Reviews", "Shop Collection", "Gallery", "Contact Us"]
+    },
+    "materials": {
+      "patterns": [
+        "material", "materials", "fabric", "what made of", "textile",
+        "quality", "organic", "cotton", "silk"
+      ],
+      "responses": [
+        "Our premium sustainable materials:<br>🌿 Organic cotton<br>🐚 Peace silk<br>♻️ Recycled polyester<br>🌾 Linen & hemp blends<br>🧵 Certified sustainable textiles<br><br>All ethically sourced & traceable.",
+        "We use only:<br>• Organic & recycled fabrics<br>• Sustainable silk & cotton<br>• GOTS certified materials<br>• Traceable supply chains<br><br>Quality you can see, sustainability you can trust.",
+        "Premium sustainable materials: organic cotton, peace silk, recycled fibers. All GOTS/OEKO-TEX certified. Transparent supply chains. Learn more: <a href='about.html'>About page</a>."
+      ],
+      "quickReplies": ["Sustainability", "Shop Collection", "Certifications", "Contact Us"]
+    },
+    "track": {
+      "patterns": [
+        "track", "tracking", "where is my order", "shipment", "status",
+        "order status", "delivery status", "find order"
+      ],
+      "responses": [
+        "Track your order:<br>📦 Check your email for tracking link<br>🔍 Or contact us with order number<br>📧 hello@sx06luxe.com<br>💬 WhatsApp: +234 801 234 5678<br><br>We'll locate it right away!",
+        "To track your order:<br>1. Check confirmation email for tracking link<br>2. Contact us: hello@sx06luxe.com<br>3. WhatsApp: +234 801 234 5678<br><br>Include your order number for instant help!",
+        "Need order tracking? Email hello@sx06luxe.com or WhatsApp +234 801 234 5678 with your order number. We'll provide real-time updates!"
+      ],
+      "quickReplies": ["Contact Us", "Shipping Info", "Shop Collection", "Returns"]
+    },
+    "nigeria": {
+      "patterns": [
+        "nigeria", "nigerian", "lagos", "abuja", "port harcourt",
+        "local", "africa", "ship to nigeria"
+      ],
+      "responses": [
+        "Yes! We're proudly Nigerian-founded 🇳🇬<br><br>Nigerian customers enjoy:<br>✓ Priority processing<br>✓ Fastest shipping (3-5 days)<br>✓ Local payment options<br>✓ Nigerian customer support<br><br>Supporting African luxury!",
+        "Absolutely! Founded in Nigeria by Abdulmuqeet. 🇳🇬<br><br>Benefits for Nigerian customers:<br>• Express local delivery<br>• Naira payment options<br>• Local customer service<br><br>Luxury, made in Africa.",
+        "Yes! We ship across Nigeria with priority processing. Lagos, Abuja, Port Harcourt, and all states. 3-5 day delivery. Supporting homegrown luxury! 🇳🇬"
+      ],
+      "quickReplies": ["Shop Collection", "Shipping Info", "Brand Story", "Contact Us"]
+    },
+    "occasion": {
+      "patterns": [
+        "occasion", "event", "wedding", "party", "business", "formal",
+        "casual", "work", "what to wear"
+      ],
+      "responses": [
+        "Perfect for every occasion:<br>✨ Evening events & galas<br>💼 Business & professional<br>🎉 Celebrations & parties<br>👔 Smart casual<br><br>Browse by occasion in our <a href='gallery.html'>Gallery</a>!",
+        "Our collection covers:<br>• Formal events<br>• Business settings<br>• Casual elegance<br>• Special occasions<br><br>Need styling advice? <a href='contact.html'>Contact us</a> for personalized recommendations!",
+        "From boardroom to ballroom! Our versatile pieces work for weddings, galas, business meetings, and everyday luxury. Need help choosing? We offer free styling consultations!"
+      ],
+      "quickReplies": ["Shop Collection", "Gallery", "Styling Help", "Contact Us"]
+    },
+    "care": {
+      "patterns": [
+        "care", "wash", "clean", "maintain", "how to care",
+        "laundry", "dry clean", "instructions"
+      ],
+      "responses": [
+        "Care instructions (included with each piece):<br>🧼 Most items: gentle machine wash or dry clean<br>🌡️ Cold water recommended<br>☀️ Air dry preferred<br>👕 Professional cleaning for silk/wool<br><br>Detailed care tag with every item.",
+        "To maintain your Sx06 Luxe piece:<br>• Follow care label instructions<br>• Gentle wash or dry clean<br>• Avoid harsh chemicals<br>• Store properly<br><br>With proper care, our pieces last for years!",
+        "Each item includes detailed care instructions. Generally: gentle wash, cold water, air dry. Dry cleaning recommended for silk and wool. Questions? Contact hello@sx06luxe.com"
+      ],
+      "quickReplies": ["Shop Collection", "Contact Us", "Materials Info", "Returns"]
+    },
+    "wholesale": {
+      "patterns": [
+        "wholesale", "bulk", "business", "retailer", "boutique",
+        "stock", "resell", "partnership"
+      ],
+      "responses": [
+        "Interested in wholesale or partnership? 🤝<br><br>Contact our business team:<br>📧 business@sx06luxe.com<br><br>We work with:<br>• Boutiques<br>• Department stores<br>• Online retailers<br>• Fashion platforms",
+        "Wholesale inquiries welcome! Email business@sx06luxe.com with:<br>• Your business details<br>• Location<br>• Type of partnership<br><br>We'll respond within 48 hours with our wholesale catalog.",
+        "For wholesale, boutique partnerships, or bulk orders, contact business@sx06luxe.com. We offer special terms for retailers and fashion platforms."
+      ],
+      "quickReplies": ["Contact Business", "Brand Story", "Shop Collection", "Press Kit"]
+    },
+    "discount": {
+      "patterns": [
+        "discount", "sale", "coupon", "promo", "offer",
+        "deal", "code", "cheaper", "promotion"
+      ],
+      "responses": [
+        "Current offers:<br>🎁 Free shipping on orders $200+<br>💌 Sign up for newsletter: 10% off first order<br>🌟 Follow us on Instagram for exclusive codes<br><br>Subscribe at <a href='index.html#newsletter'>Newsletter</a>!",
+        "Save on your purchase:<br>✓ Newsletter signup: 10% off<br>✓ Orders $200+: Free shipping<br>✓ Follow social media for flash sales<br><br>Join our <a href='index.html#newsletter'>community</a> for exclusive offers!",
+        "Get 10% off your first order by subscribing to our newsletter! Plus free shipping on orders over $200. Follow us on Instagram for seasonal promotions."
+      ],
+      "quickReplies": ["Subscribe", "Shop Collection", "Follow Instagram", "Contact Us"]
+    },
+    "fallback": {
+      "patterns": [],
+      "responses": [
+        "I'm here to help! I can assist with:<br>🛍️ Shopping our collection<br>📦 Shipping & returns<br>📏 Sizing guidance<br>📖 Brand story<br>💬 General questions<br><br>What would you like to know?",
+        "I didn't quite catch that. Try asking about:<br>• Our luxury collection<br>• Shipping information<br>• Returns policy<br>• Sizing help<br>• Brand story<br>• Sustainability practices<br><br>How can I help?",
+        "Let me help you! I can answer questions about shopping, shipping, returns, sizing, our brand, or sustainability. What interests you?",
+        "I'm not sure about that, but I can help with our collection, orders, shipping, returns, or brand information. What would you like to explore?"
+      ],
+      "quickReplies": ["Shop Collection", "Brand Story", "Shipping Info", "Contact Us"]
+    },
+    "thanks": {
+      "patterns": [
+        "thank", "thanks", "thank you", "appreciate", "helpful",
+        "great", "awesome", "perfect"
+      ],
+      "responses": [
+        "You're very welcome! 😊 Is there anything else I can help you with today?",
+        "My pleasure! Happy to help. Feel free to ask if you have any other questions! ✨",
+        "Glad I could help! 🙌 Don't hesitate to reach out if you need anything else.",
+        "You're welcome! Enjoy exploring Sx06 Luxe. Let me know if you need anything else! 💫"
+      ],
+      "quickReplies": ["Shop Collection", "Gallery", "Contact Us", "Close Chat"]
+    },
+    "goodbye": {
+      "patterns": [
+        "bye", "goodbye", "see you", "later", "exit",
+        "close", "done", "that's all"
+      ],
+      "responses": [
+        "Thank you for visiting Sx06 Luxe! Have a wonderful day! ✨",
+        "Goodbye! Feel free to return anytime. Enjoy your day! 👋",
+        "See you soon! Don't forget to check out our collection. Take care! 💫",
+        "Thanks for chatting! Visit us again soon. Enjoy luxury lifestyle! 🌟"
+      ],
+      "quickReplies": ["Shop Collection", "Gallery", "Subscribe", "Contact Us"]
+    }
+  },
+  "settings": {
+    "defaultIntent": "fallback",
+    "confidenceThreshold": 0.7,
+    "maxResponseTime": 1000,
+    "enableTypingIndicator": true,
+    "saveHistory": true,
+    "enableQuickReplies": true
+  }
+}

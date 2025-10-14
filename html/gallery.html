@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore customer stories and see how Sx06 Luxe pieces are styled around the world.">
+    <title>Gallery — Sx06 Luxe</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-gold: #D4AF37;
+            --color-gold-light: #E5C158;
+            --color-gray-dark: #1a1a1a;
+            --color-gray-medium: #666666;
+            --color-gray-light: #f5f5f5;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --font-display: 'Montserrat Alternates', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-black);
+            background: var(--color-white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        
+        .navbar {
+            background: var(--color-white);
+            padding: var(--space-sm) 0;
+            transition: all var(--transition-base);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .navbar.scrolled {
+            padding: var(--space-xs) 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: height var(--transition-base);
+        }
+        
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-black) !important;
+            padding: var(--space-xs) var(--space-sm) !important;
+            transition: color var(--transition-fast);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: var(--color-gold) !important;
+        }
+        
+        .page-header {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: calc(80px + var(--space-xl)) 0 var(--space-xl);
+            text-align: center;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--color-gold);
+            letter-spacing: 0.1em;
+        }
+        
+        .gallery-section {
+            padding: var(--space-xl) 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            background: var(--color-gray-light);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-base);
+        }
+        
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--space-md);
+            color: var(--color-white);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-user {
+            font-weight: 600;
+            color: var(--color-gold);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .gallery-caption {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .video-indicator {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            background: rgba(0,0,0,0.7);
+            color: var(--color-white);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+        }
+        
+        .lightbox-content img,
+        .lightbox-content video {
+            max-width: 100%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .lightbox-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+            padding: var(--space-lg) var(--space-md) var(--space-md);
+            color: var(--color-white);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--color-white);
+            color: var(--color-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-close:hover {
+            background: var(--color-white);
+            color: var(--color-black);
+            transform: rotate(90deg);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--color-white);
+            color: var(--color-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-nav:hover {
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: var(--space-lg) 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        footer a:hover {
+            color: var(--color-gold-light);
+        }
+        
+        *:focus-visible {
+            outline: 3px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: var(--space-sm);
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="Sx06 Luxe Home">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='60' font-family='Montserrat Alternates, sans-serif' font-weight='800' font-size='48' fill='%23000' letter-spacing='2'%3ESx06%3C/text%3E%3C/svg%3E" alt="Sx06 Luxe Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="linktree.html">Links</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Gallery</h1>
+            <p>Customer Stories & Styled Moments</p>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+        <div class="lightbox-content" id="lightboxContent">
+            <!-- Content loaded dynamically -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sx06 Luxe — SUSTAINX06 LUXURY. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="about.html">About</a> · 
+                <a href="contact.html">Contact</a> · 
+                <a href="linktree.html">Follow Us</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Gallery data (mock - replace with fetch from data/gallery.json)
+        const galleryData = [
+            {
+                id: 'g1',
+                user: '@amira',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=800&fit=crop',
+                caption: 'Golden hour elegance in Sx06 Luxe coat'
+            },
+            {
+                id: 'g2',
+                user: '@jah',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=800&fit=crop',
+                caption: 'Runway-inspired metropolitan look'
+            },
+            {
+                id: 'g3',
+                user: '@sofia',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=800&fit=crop',
+                caption: 'Timeless sophistication redefined'
+            },
+            {
+                id: 'g4',
+                user: '@marcus',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=800&h=800&fit=crop',
+                caption: 'Contemporary tailoring excellence'
+            },
+            {
+                id: 'g5',
+                user: '@elena',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=800&fit=crop',
+                caption: 'Minimalist luxury at its finest'
+            },
+            {
+                id: 'g6',
+                user: '@david',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=800&h=800&fit=crop',
+                caption: 'Urban refinement meets classic design'
+            },
+            {
+                id: 'g7',
+                user: '@maya',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=800&h=800&fit=crop',
+                caption: 'Effortless elegance for every occasion'
+            },
+            {
+                id: 'g8',
+                user: '@alex',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&h=800&fit=crop',
+                caption: 'Statement pieces that speak volumes'
+            },
+            {
+                id: 'g9',
+                user: '@nina',
+                mediaType: 'image',
+                src: 'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=800&h=800&fit=crop',
+                caption: 'Sustainable luxury in motion'
+            }
+        ];
+
+        let currentLightboxIndex = 0;
+
+        // Load gallery
+        function loadGallery() {
+            const grid = document.getElementById('galleryGrid');
+            
+            grid.innerHTML = galleryData.map((item, index) => `
+                <div class="gallery-item" data-index="${index}" tabindex="0" role="button" aria-label="View ${item.caption}">
+                    ${item.mediaType === 'video' ? 
+                        `<video src="${item.src}" poster="${item.poster || ''}" muted loop></video>
+                         <div class="video-indicator">▶ Video</div>` :
+                        `<img src="${item.src}" alt="${item.caption}" loading="lazy">`
+                    }
+                    <div class="gallery-overlay">
+                        <div class="gallery-user">${item.user}</div>
+                        <div class="gallery-caption">${item.caption}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click listeners
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.addEventListener('click', () => openLightbox(index));
+                item.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(index);
+                    }
+                });
+            });
+        }
+
+        // Lightbox functions
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('lightboxClose').focus();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+            const items = document.querySelectorAll('.gallery-item');
+            if (items[currentLightboxIndex]) {
+                items[currentLightboxIndex].focus();
+            }
+        }
+
+        function updateLightboxContent() {
+            const item = galleryData[currentLightboxIndex];
+            const content = document.getElementById('lightboxContent');
+            
+            if (item.mediaType === 'video') {
+                content.innerHTML = `
+                    <video src="${item.src}" controls autoplay style="max-width: 100%; max-height: 90vh; border-radius: 8px;">
+                        Your browser does not support video playback.
+                    </video>
+                    <div class="lightbox-info">
+                        <div class="gallery-user">${item.user}</div>
+                        <div class="gallery-caption">${item.caption}</div>
+                    </div>
+                `;
+            } else {
+                content.innerHTML = `
+                    <img src="${item.src}" alt="${item.caption}">
+                    <div class="lightbox-info">
+                        <div class="gallery-user">${item.user}</div>
+                        <div class="gallery-caption">${item.caption}</div>
+                    </div>
+                `;
+            }
+        }
+
+        function nextItem() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        function prevItem() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryData.length) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Event listeners
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxNext').addEventListener('click', nextItem);
+        document.getElementById('lightboxPrev').addEventListener('click', prevItem);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextItem();
+            if (e.key === 'ArrowLeft') prevItem();
+        });
+
+        // Close on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // Initialize
+        loadGallery();
+
+        /* 
+         * PRODUCTION NOTE:
+         * Replace mock galleryData with:
+         * 
+         * async function loadGallery() {
+         *     try {
+         *         const response = await fetch('data/gallery.json');
+         *         galleryData = await response.json();
+         *         renderGallery();
+         *     } catch (error) {
+         *         console.error('Failed to load gallery:', error);
+         *     }
+         * }
+         */
+    </script>
+</body>
+</html>
